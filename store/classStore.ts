@@ -1,4 +1,5 @@
 import create from 'zustand';
+import info from '../src/info';
 
 interface StarsState {
     currentStar: string;
@@ -8,11 +9,11 @@ interface StarsState {
 }
 
 interface starInfo {
-    [key: string]: string
+    [key: string]: {  description: string, image: string }
 }
 export const useStarsStore = create<StarsState>((set) => ({
-    currentStar: 'Pulsi',
+    currentStar: 'Pulsar',
     changeStar: (name: string) => set(() => ({ currentStar: name })),
-    starList: ['Pulsar', 'Red Dwarf'],
-    starInfo: { 'Pulsar': 'Thats a pulsar', 'Red Dwarf': 'No Fuelscooping' }
+    starList: ['Pulsar', 'Red Dwarf', 'Neutron Star', 'White Dwarf'],
+    starInfo: info
 }))
